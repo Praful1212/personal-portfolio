@@ -149,22 +149,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Quick Note Form Submission (Mailto Generator)
+  // 6. Contact Form — Formspree AJAX Submission
   const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  const formSubmitBtn = document.getElementById('formSubmitBtn');
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
-      const name = document.getElementById('senderName')?.value.trim() || '';
-      const email = document.getElementById('senderEmail')?.value.trim() || '';
-      const subject = document.getElementById('senderSubject')?.value.trim() || 'Data Strategy & Engineering Opportunity';
-      const message = document.getElementById('senderMessage')?.value.trim() || '';
 
-      const bodyText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-      const mailtoUrl = `mailto:prafulsaxena12@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+      // Show loading state
+      const originalBtnContent = formSubmitBtn.innerHTML;
+      formSubmitBtn.disabled = true;
+      formSubmitBtn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path></svg>
+        Sending…
+      `;
 
-      // Open mail client
-      window.location.href = mailtoUrl;
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          // Success
+          formStatus.style.display = 'block';
+          formStatus.style.background = 'rgba(16, 185, 129, 0.15)';
+          formStatus.style.border = '1px solid rgba(16, 185, 129, 0.4)';
+          formStatus.style.color = '#34d399';
+          formStatus.innerHTML = '✅ Message sent successfully! I\'ll get back to you soon.';
+          contactForm.reset();
+          formSubmitBtn.innerHTML = originalBtnContent;
+          formSubmitBtn.disabled = false;
+
+          // Auto-hide status after 6 seconds
+          setTimeout(() => { formStatus.style.display = 'none'; }, 6000);
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        // Error fallback
+        formStatus.style.display = 'block';
+        formStatus.style.background = 'rgba(239, 68, 68, 0.12)';
+        formStatus.style.border = '1px solid rgba(239, 68, 68, 0.35)';
+        formStatus.style.color = '#f87171';
+        formStatus.innerHTML = '⚠️ Couldn\'t send via form. Please <a href="mailto:prafulsaxena12@gmail.com" style="color:#f87171; text-decoration:underline;">email directly</a>.';
+        formSubmitBtn.innerHTML = originalBtnContent;
+        formSubmitBtn.disabled = false;
+      }
     });
   }
 });

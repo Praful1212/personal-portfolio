@@ -1,6 +1,7 @@
 # Praful Saxena — Personal Portfolio Website
 
-> **Executive Data Strategy & Senior Data Engineering Portfolio**  
+> **Senior Data Engineer & Manager, Data Strategy (6+ Years Experience)**  
+> Live Vercel Site: [https://prafulsaxena.vercel.app/](https://prafulsaxena.vercel.app/)  
 > Custom Domain: [www.prafulsaxena.com](https://www.prafulsaxena.com)  
 > Live Repository: [https://github.com/Praful1212/personal-portfolio](https://github.com/Praful1212/personal-portfolio)
 
@@ -8,16 +9,16 @@
 
 ## 🌟 Overview
 
-A modern, high-performance, dark-mode portfolio engineered to showcase Praful Saxena's professional journey, streaming architectures, GenAI/RAG operational platforms, and executive data impact.
+A modern, high-performance, dark-mode portfolio engineered to showcase Praful Saxena's professional journey (6+ years in data engineering, 3.6 years at Paytm), streaming architectures, GenAI/RAG operational platforms, and executive data impact.
 
 ### ✨ Key Features:
 - **Executive Design System**: Custom dark-mode aesthetic with ambient mesh glows, glassmorphic cards, and sleek typography (`Outfit`, `Plus Jakarta Sans`, `JetBrains Mono`).
 - **Interactive Architecture Deep Dives**: Detailed case studies with CSS-rendered topology diagrams for:
   - *Autonomous AI-Powered Ops Monitoring & RCA Platform* (FastAPI, ChromaDB RAG, Spark/YARN failure detection, Slack bot).
   - *Real-Time Customer Location Enrichment Stream* (Apache Kafka, PySpark, GeoHash, CleverTap).
-- **Quantified Impact Metrics**: Animated counters highlighting 99% uptime SLA, 40% ETL cost reduction, 35% runtime cut, and sub-minute automated RCA.
+- **Quantified Impact Metrics**: Animated counters highlighting 6+ years data experience, 99% uptime SLA, 40% ETL cost reduction, and 35% runtime cut.
 - **Interactive Resume Modal & One-Click PDF Download**: Direct integration of Praful's official resume PDF.
-- **Recruiter Quick Connect**: 1-click clipboard copy for email & phone, direct social links (LinkedIn, GitHub), and quick-contact form.
+- **Recruiter Quick Connect**: 1-click clipboard copy for email & phone (`+91 9792118731`), direct social links (LinkedIn, GitHub), and quick-contact form.
 - **100% Zero-Dependency Static Build**: Blazing fast, SEO-optimized with Schema.org Person JSON-LD, OpenGraph tags, and mobile responsiveness.
 
 ---
